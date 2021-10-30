@@ -61,10 +61,5 @@ contract DappToken {
         allowance[_from][msg.sender] -= _value;
         emit Transfer(_from, _to, _value);
         return true;
-        // require from account
-        // Change balance
-        // update allowance
-        // call transfer event
-        // return bool
     }
 }
