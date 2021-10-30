@@ -1,0 +1,39 @@
+How it work 
+============
+# PROVISOIN TOKENS TO TOKEN SALE CONTRACT
+# SET A TOKEN PRICE IN WEI
+# ASSIGN AN ADMIN
+# BUY TOKENS
+# SELL TOKEN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+====================================ERC20 TOKEN====================================
