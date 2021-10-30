@@ -5,3 +5,4 @@ Part 2-https://github.com/Full-stack-Web-Dev-BD/Custom-Erc20Token-Creation/tree/
 Part 3-https://github.com/Full-stack-Web-Dev-BD/Custom-Erc20Token-Creation/tree/ba29f42c16b7a14bf66f86a6692bc1d5f831c4ee
 Part 4-https://github.com/Full-stack-Web-Dev-BD/Custom-Erc20Token-Creation/tree/740fbeae47512617f6842e1c1d34f38b1151af10
 Part 5-https://github.com/Full-stack-Web-Dev-BD/Custom-Erc20Token-Creation/tree/109bd4dd3d98c57a2d438ee10108967e7f3b65ca
+Part 6-https://github.com/Full-stack-Web-Dev-BD/Custom-Erc20Token-Creation/tree/8969eb15630cb9c0562722b551eea70c3a41e21b

@@ -31,4 +31,12 @@ contract DappTokenSale {
         tokenSold += _numberOfToken;
         emit Sell(msg.sender, _numberOfToken);
     }
+
+    // End DappToken Sale
+    function endSale() public payable {
+        require(msg.sender == admin);
+        require(dappToken.transfer(admin, 1000));
+        address payable myAdmin = address(msg.sender);
+        selfdestruct(myAdmin);
+    }
 }

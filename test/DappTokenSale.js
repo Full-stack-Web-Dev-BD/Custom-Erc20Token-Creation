@@ -35,10 +35,19 @@ contract("DappTokenSale", async (accounts) => {
         assert.equal((await receipt[0].args._amount).toNumber(), numberOfToken, "log the amount of token sold ")
         var soldToken = await dtsc.tokenSold()
         assert.equal(soldToken, numberOfToken, "increment the number of tokens sold")
-
         let buyerBalance = await dtc.balanceOf(buyer)
         assert.equal(buyerBalance.toNumber(), numberOfToken, "should be match with purchased amount")
-
     })
+    // it('end token sale ', async () => {
+    //     var dtsc = await DappTokenSale.deployed()
+    //     var dtc = await DappToken.deployed()
+    //     // try to end sale from account other then the admin
+    //     var endsaleReceipt = (await dtsc.endSale({ from: admin, gas: 30000 })).receipt.logs
+    //     var adminBalance = (await dtc.balanceOf(admin))
+    //     assert.equal(adminBalance.toNumber(), 1000, 'return all unsold dapp token to admin')
+    //     // check that token price was reset when selfDestruct was called 
+    //     let tokenPrice = await dtsc.tokenPrice()
+    //     assert.equal(tokenPrice, 0, "token price was reset ")
+    // })
 
 })
