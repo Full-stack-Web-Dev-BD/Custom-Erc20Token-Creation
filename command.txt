@@ -1,0 +1,1 @@
+transaction create: await dt.transfer(accounts[1], 1 , {from:ad}) 

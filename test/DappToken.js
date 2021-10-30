@@ -5,10 +5,10 @@ contract("DappToken", async (accounts) => {
         let dappTokenInstance = await DappToken.deployed()
         let tokenName = await dappTokenInstance.name()
         let tokenSymbol = await dappTokenInstance.symbol()
-        let standerd = await dappTokenInstance.standerd()
+        let standard = await dappTokenInstance.standard()
         assert.equal(tokenName, "BDTC", "Set the token name !")
         assert.equal(tokenSymbol, "BDTCSymbol", "Set the token symbol !");
-        assert.equal(standerd, "DApp Token v1.0", "Has the correct version !");
+        assert.equal(standard, "DApp Token v1.0", "Has the correct version !");
     })
     it("Sets the total suppley upon deployment ", async () => {
         let dappTokenInstance = await DappToken.deployed()
