@@ -1,5 +1,4 @@
 =>Method.call -in test ( this  not create transaction , this simply call function without writing transaction to the blockchain)
-Part:
-======
-    1-Done transfer token with test
-    2-Done minimum testing and first contract
+
+Part 1-https://github.com/Full-stack-Web-Dev-BD/Custom-Erc20Token-Creation/tree/682ed47a6f824dfe3e9f5722cfdaa5d55e3b7593
+Part 2-https://github.com/Full-stack-Web-Dev-BD/Custom-Erc20Token-Creation/tree/286c747de76540c125184115ea5d1f4f152ae655

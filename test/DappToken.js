@@ -34,7 +34,7 @@ contract("DappToken", async (accounts) => {
     it("approve tokens for delegated transfer ", async () => {
         let dappTokenInstance = await DappToken.deployed()
         let approveResult = await dappTokenInstance.approve.call(accounts[0], 100)
-        assert.equal(approveResult, true, "it returns true")
+        assert.equal(approveResult, true, "it should returns true")
         let approveEvent = (await dappTokenInstance.approve(accounts[1], 100)).receipt.logs
         assert.equal(approveEvent.length, 1, "triggers one event ");
         assert.equal(approveEvent[0].event, "Approve", 'should be "Approve " event')
@@ -42,6 +42,36 @@ contract("DappToken", async (accounts) => {
         assert.equal(approveEvent[0].args._spender, accounts[1], 'logs the account  the tokens are  spender')
         assert.equal(approveEvent[0].args._value, 100, 'logs the transfer amount')
 
+        await dappTokenInstance.approve(accounts[1], 100), { from: accounts[0] }
+        let allowance = (await dappTokenInstance.allowance(accounts[0], accounts[1])).toNumber()
+        assert.equal(allowance, 100, "should  be store the allowance for delegated transfer ")
+    })
+    it('should handles delegated token transfers ', async () => {
+        let dappTokenInstance = await DappToken.deployed()
+        let fromAccount = accounts[2]
+        let toAccount = accounts[3]
+        let spendingAccount = accounts[4]
+        //transfer some token  to fromAccount
+        await dappTokenInstance.transfer(fromAccount, 100, { from: accounts[0] })
+        await dappTokenInstance.approve(spendingAccount, 10, { from: fromAccount })
+        let transferFromReceipt = (await dappTokenInstance.transferFrom(fromAccount, toAccount, 10, { from: spendingAccount })).receipt.logs
+        assert.equal(transferFromReceipt.length, 1, "triggers one event ");
+        assert.equal(transferFromReceipt[0].event, "Transfer", 'should be "Transfer " event')
+        assert.equal(transferFromReceipt[0].args._from, accounts[2], 'logs the account  the tokens are  owner ')
+        assert.equal(transferFromReceipt[0].args._to, accounts[3], 'logs the account  the tokens are  spender')
+        assert.equal(transferFromReceipt[0].args._value, 10, 'logs the transfer amount')
+        let success = await dappTokenInstance.transferFrom.call(fromAccount, toAccount, 10, { from: spendingAccount })
+        let = await dappTokenInstance.transferFrom.call(fromAccount, toAccount, 10, { from: spendingAccount })
+        assert.equal(success, true, "should return true for delegated transfer")
+
+        let fromAccountBalance = (await dappTokenInstance.balanceOf(fromAccount)).toNumber()
+        assert.equal(fromAccountBalance, 90, "balance should be  90 after sending  10 token")
+
+        let toAccountBalance = (await dappTokenInstance.balanceOf(toAccount)).toNumber()
+        assert.equal(toAccountBalance, 10, "balance should be  10 after getting  10 token")
+
+        let allowance = (await dappTokenInstance.allowance(fromAccount, spendingAccount)).toNumber()
+        assert.equal(allowance, 0, "deducts the amount  from allowance ")
 
     })
 })
