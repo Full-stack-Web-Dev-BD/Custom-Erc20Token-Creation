@@ -1,0 +1,1515 @@
+
+C:\Users\Alamin (Programmer)\Desktop\Blockchain-App\5Dapp\Custom-Erc20Token-Creation> truffle console
+truffle(ganache)> let dt = await DappToken.deployed()
+undefined
+truffle(ganache)> dt.totalSupply()
+BN {
+  negative: 0,
+  words: [ 1000000, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)> await dt.totalSupply()
+BN {
+  negative: 0,
+  words: [ 1000000, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)> let tsb= await dt.totalSupply()
+undefined
+truffle(ganache)> let ts= tsb.toNumber()
+undefined
+truffle(ganache)> ts
+1000000
+truffle(ganache)> web3.eth.getAccounts()
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> dt.balanceOf(admin)
+evalmachine.<anonymous>:0
+dt.balanceOf(admin)
+             ^
+
+Uncaught ReferenceError: admin is not defined
+    at evalmachine.<anonymous>:0:14
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+truffle(ganache)> let admin=web3.eth.getAccounts()[0]
+undefined
+truffle(ganache)> admin
+undefined
+truffle(ganache)> admin= web3.eth.getAccounts()
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> admin
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> dt.getBalance(admin[0])
+evalmachine.<anonymous>:0
+dt.getBalance(admin[0])
+   ^
+
+Uncaught TypeError: dt.getBalance is not a function
+    at evalmachine.<anonymous>:0:4
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+undefined
+truffle(ganache)> dt
+TruffleContract {
+  constructor: [Function: TruffleContract] {
+    _constructorMethods: {
+      configureNetwork: [Function: configureNetwork],
+      setProvider: [Function: setProvider],
+      new: [Function: new],
+      at: [AsyncFunction: at],
+      deployed: [AsyncFunction: deployed],
+      defaults: [Function: defaults],
+      hasNetwork: [Function: hasNetwork],
+      isDeployed: [Function: isDeployed],
+      detectNetwork: [AsyncFunction: detectNetwork],
+      setNetwork: [Function: setNetwork],
+      setNetworkType: [Function: setNetworkType],
+      setWallet: [Function: setWallet],
+      resetAddress: [Function: resetAddress],
+      link: [Function: link],
+      clone: [Function: clone],
+      addProp: [Function: addProp],
+      toJSON: [Function: toJSON],
+      decodeLogs: [Function: decodeLogs]
+    },
+    _properties: {
+      contract_name: [Object],
+      contractName: [Object],
+      gasMultiplier: [Object],
+      timeoutBlocks: [Object],
+      autoGas: [Object],
+      numberFormat: [Object],
+      abi: [Object],
+      metadata: [Function: metadata],
+      network: [Function: network],
+      networks: [Function: networks],
+      address: [Object],
+      transactionHash: [Object],
+      links: [Function: links],
+      events: [Function: events],
+      binary: [Function: binary],
+      deployedBinary: [Function: deployedBinary],
+      unlinked_binary: [Object],
+      bytecode: [Object],
+      deployedBytecode: [Object],
+      sourceMap: [Object],
+      deployedSourceMap: [Object],
+      source: [Object],
+      sourcePath: [Object],
+      legacyAST: [Object],
+      ast: [Object],
+      compiler: [Object],
+      schema_version: [Function: schema_version],
+      schemaVersion: [Function: schemaVersion],
+      updated_at: [Function: updated_at],
+      updatedAt: [Function: updatedAt],
+      userdoc: [Function: userdoc],
+      devdoc: [Function: devdoc],
+      networkType: [Object],
+      immutableReferences: [Object],
+      generatedSources: [Object],
+      deployedGeneratedSources: [Object],
+      db: [Object]
+    },
+    _property_values: {},
+    _json: {
+      contractName: 'DappToken',
+      abi: [Array],
+      metadata: '{"compiler":{"version":"0.5.16+commit.9c3226ce"},"language":"Solidity","output":{"abi":[{"inputs":[{"internalType":"uint256","name":"_initialSupply","type":"uint256"},{"internalType":"string","name":"_name","type":"string"},{"internalType":"string","name":"_symbol","type":"string"}],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"_owner","type":"address"},{"indexed":true,"internalType":"address","name":"_spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"_value","type":"uint256"}],"name":"Approve","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"_from","type":"address"},{"indexed":true,"internalType":"address","name":"_to","type":"address"},{"indexed":false,"internalType":"uint256","name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"constant":true,"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_spender","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"standard","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"}],"devdoc":{"methods":{}},"userdoc":{"methods":{}}},"settings":{"compilationTarget":{"project:/contracts/DappToken.sol":"DappToken"},"evmVersion":"istanbul","libraries":{},"optimizer":{"enabled":false,"runs":200},"remappings":[]},"sources":{"project:/contracts/DappToken.sol":{"keccak256":"0x8228fedef02affa42b2241c0fb05707cbd5dc7568f4bc5b22869784db9323140","urls":["bzz-raw://d910cd88fb2842a419cc82275bc3e834cffa43f1b53ea3f2d29930bb133e1a0a","dweb:/ipfs/QmQHBwrh5rD6cimNFR7gv8WK8mf5oB1C6trgBNkJnV3Yzu"]}},"version":1}',
+      bytecode: '0x60806040526040518060400160405280600f81526020017f4441707020546f6b656e2076312e300000000000000000000000000000000000815250600390805190602001906200005192919062000293565b503480156200005f57600080fd5b5060405162000eb938038062000eb9833981810160405260608110156200008557600080fd5b810190808051906020019092919080516040519392919084640100000000821115620000b057600080fd5b83820191506020820185811115620000c757600080fd5b8251866001820283011164010000000082111715620000e557600080fd5b8083526020830192505050908051906020019080838360005b838110156200011b578082015181840152602081019050620000fe565b50505050905090810190601f168015620001495780820380516001836020036101000a031916815260200191505b50604052602001805160405193929190846401000000008211156200016d57600080fd5b838201915060208201858111156200018457600080fd5b8251866001820283011164010000000082111715620001a257600080fd5b8083526020830192505050908051906020019080838360005b83811015620001d8578082015181840152602081019050620001bb565b50505050905090810190601f168015620002065780820380516001836020036101000a031916815260200191505b5060405250505082600460003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508260028190555081600090805190602001906200027092919062000293565b5080600190805190602001906200028992919062000293565b5050505062000342565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f10620002d657805160ff191683800117855562000307565b8280016001018555821562000307579182015b8281111562000306578251825591602001919060010190620002e9565b5b5090506200031691906200031a565b5090565b6200033f91905b808211156200033b57600081600090555060010162000321565b5090565b90565b610b6780620003526000396000f3fe608060405234801561001057600080fd5b50600436106100935760003560e01c80635a3b7e42116100665780635a3b7e421461022557806370a08231146102a857806395d89b4114610300578063a9059cbb14610383578063dd62ed3e146103e957610093565b806306fdde0314610098578063095ea7b31461011b57806318160ddd1461018157806323b872dd1461019f575b600080fd5b6100a0610461565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100e05780820151818401526020810190506100c5565b50505050905090810190601f16801561010d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101676004803603604081101561013157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506104ff565b604051808215151515815260200191505060405180910390f35b6101896105f1565b6040518082815260200191505060405180910390f35b61020b600480360360608110156101b557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506105f7565b604051808215151515815260200191505060405180910390f35b61022d610862565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561026d578082015181840152602081019050610252565b50505050905090810190601f16801561029a5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102ea600480360360208110156102be57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610900565b6040518082815260200191505060405180910390f35b610308610918565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561034857808201518184015260208101905061032d565b50505050905090810190601f1680156103755780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6103cf6004803603604081101561039957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506109b6565b604051808215151515815260200191505060405180910390f35b61044b600480360360408110156103ff57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610b0d565b6040518082815260200191505060405180910390f35b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104f75780601f106104cc576101008083540402835291602001916104f7565b820191906000526020600020905b8154815290600101906020018083116104da57829003601f168201915b505050505081565b600081600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f6e11fb1b7f119e3f2fa29896ef5fdf8b8a2d0d4df6fe90ba8668e7d8b2ffa25e846040518082815260200191505060405180910390a36001905092915050565b60025481565b6000600460008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205482111561064557600080fd5b600560008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020548210156106ce57600080fd5b81600460008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555081600460008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555081600560008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055508273ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190509392505050565b60038054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156108f85780601f106108cd576101008083540402835291602001916108f8565b820191906000526020600020905b8154815290600101906020018083116108db57829003601f168201915b505050505081565b60046020528060005260406000206000915090505481565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156109ae5780601f10610983576101008083540402835291602001916109ae565b820191906000526020600020905b81548152906001019060200180831161099157829003601f168201915b505050505081565b600081600460003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610a0457600080fd5b81600460003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555081600460008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a36001905092915050565b600560205281600052604060002060205280600052604060002060009150915050548156fea265627a7a7231582017fe64f60235b120de113e99d33fe395f3053321fde19cff161168b046bfb1b764736f6c63430005100032',
+      deployedBytecode: '0x608060405234801561001057600080fd5b50600436106100935760003560e01c80635a3b7e42116100665780635a3b7e421461022557806370a08231146102a857806395d89b4114610300578063a9059cbb14610383578063dd62ed3e146103e957610093565b806306fdde0314610098578063095ea7b31461011b57806318160ddd1461018157806323b872dd1461019f575b600080fd5b6100a0610461565b6040518080602001828103825283818151815260200191508051906020019080838360005b838110156100e05780820151818401526020810190506100c5565b50505050905090810190601f16801561010d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6101676004803603604081101561013157600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506104ff565b604051808215151515815260200191505060405180910390f35b6101896105f1565b6040518082815260200191505060405180910390f35b61020b600480360360608110156101b557600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506105f7565b604051808215151515815260200191505060405180910390f35b61022d610862565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561026d578082015181840152602081019050610252565b50505050905090810190601f16801561029a5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6102ea600480360360208110156102be57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610900565b6040518082815260200191505060405180910390f35b610308610918565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101561034857808201518184015260208101905061032d565b50505050905090810190601f1680156103755780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6103cf6004803603604081101561039957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803590602001909291905050506109b6565b604051808215151515815260200191505060405180910390f35b61044b600480360360408110156103ff57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610b0d565b6040518082815260200191505060405180910390f35b60008054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156104f75780601f106104cc576101008083540402835291602001916104f7565b820191906000526020600020905b8154815290600101906020018083116104da57829003601f168201915b505050505081565b600081600560003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167f6e11fb1b7f119e3f2fa29896ef5fdf8b8a2d0d4df6fe90ba8668e7d8b2ffa25e846040518082815260200191505060405180910390a36001905092915050565b60025481565b6000600460008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000205482111561064557600080fd5b600560008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020548210156106ce57600080fd5b81600460008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555081600460008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254019250508190555081600560008673ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825403925050819055508273ffffffffffffffffffffffffffffffffffffffff168473ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a3600190509392505050565b60038054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156108f85780601f106108cd576101008083540402835291602001916108f8565b820191906000526020600020905b8154815290600101906020018083116108db57829003601f168201915b505050505081565b60046020528060005260406000206000915090505481565b60018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156109ae5780601f10610983576101008083540402835291602001916109ae565b820191906000526020600020905b81548152906001019060200180831161099157829003601f168201915b505050505081565b600081600460003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020541015610a0457600080fd5b81600460003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206000828254039250508190555081600460008573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600082825401925050819055508273ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff167fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef846040518082815260200191505060405180910390a36001905092915050565b600560205281600052604060002060205280600052604060002060009150915050548156fea265627a7a7231582017fe64f60235b120de113e99d33fe395f3053321fde19cff161168b046bfb1b764736f6c63430005100032',
+      immutableReferences: undefined,
+      generatedSources: undefined,
+      deployedGeneratedSources: undefined,
+      sourceMap: '35:2016:0:-;;;146:42;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;524:267;8:9:-1;5:2;;;30:1;27;20:12;5:2;524:267:0;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;524:267:0;;;;;;;;;;;;;;;;;;;;;;19:11:-1;14:3;11:20;8:2;;;44:1;41;34:12;8:2;71:11;66:3;62:21;55:28;;123:4;118:3;114:14;159:9;141:16;138:31;135:2;;;182:1;179;172:12;135:2;219:3;213:10;330:9;325:1;311:12;307:20;289:16;285:43;282:58;261:11;247:12;244:29;233:115;230:2;;;361:1;358;351:12;230:2;384:12;379:3;372:25;420:4;415:3;411:14;404:21;;0:432;;524:267:0;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;524:267:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;19:11:-1;14:3;11:20;8:2;;;44:1;41;34:12;8:2;71:11;66:3;62:21;55:28;;123:4;118:3;114:14;159:9;141:16;138:31;135:2;;;182:1;179;172:12;135:2;219:3;213:10;330:9;325:1;311:12;307:20;289:16;285:43;282:58;261:11;247:12;244:29;233:115;230:2;;;361:1;358;351:12;230:2;384:12;379:3;372:25;420:4;415:3;411:14;404:21;;0:432;;524:267:0;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;524:267:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;680:14;656:9;:21;666:10;656:21;;;;;;;;;;;;;;;:38;;;;719:14;705:11;:28;;;;751:5;744:4;:12;;;;;;;;;;;;:::i;:::-;;776:7;767:6;:16;;;;;;;;;;;;:::i;:::-;;524:267;;;35:2016;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;',
+      deployedSourceMap: '35:2016:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;35:2016:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;61:18;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;61:18:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1170:296;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1170:296:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;113:26;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1474:574;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;1474:574:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;146:42;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;146:42:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;197:44;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;197:44:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;86:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;86:20:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;799:307;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;799:307:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;248:64;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;248:64:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;61:18;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;1170:296::-;1255:12;1319:6;1285:9;:21;1295:10;1285:21;;;;;;;;;;;;;;;:31;1307:8;1285:31;;;;;;;;;;;;;;;:40;;;;1419:8;1399:37;;1407:10;1399:37;;;1429:6;1399:37;;;;;;;;;;;;;;;;;;1454:4;1447:11;;1170:296;;;;:::o;113:26::-;;;;:::o;1474:574::-;1590:12;1633:9;:16;1643:5;1633:16;;;;;;;;;;;;;;;;1623:6;:26;;1615:35;;;;;;1679:9;:16;1689:5;1679:16;;;;;;;;;;;;;;;:28;1696:10;1679:28;;;;;;;;;;;;;;;;1669:6;:38;;1661:47;;;;;;1739:6;1719:9;:16;1729:5;1719:16;;;;;;;;;;;;;;;;:26;;;;;;;;;;;1774:6;1756:9;:14;1766:3;1756:14;;;;;;;;;;;;;;;;:24;;;;;;;;;;;1823:6;1791:9;:16;1801:5;1791:16;;;;;;;;;;;;;;;:28;1808:10;1791:28;;;;;;;;;;;;;;;;:38;;;;;;;;;;;1861:3;1845:28;;1854:5;1845:28;;;1866:6;1845:28;;;;;;;;;;;;;;;;;;1891:4;1884:11;;1474:574;;;;;:::o;146:42::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;197:44::-;;;;;;;;;;;;;;;;;:::o;86:20::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;799:307::-;880:12;943:6;918:9;:21;928:10;918:21;;;;;;;;;;;;;;;;:31;;910:40;;;;;;986:6;961:9;:21;971:10;961:21;;;;;;;;;;;;;;;;:31;;;;;;;;;;;1021:6;1003:9;:14;1013:3;1003:14;;;;;;;;;;;;;;;;:24;;;;;;;;;;;1064:3;1043:33;;1052:10;1043:33;;;1069:6;1043:33;;;;;;;;;;;;;;;;;;1094:4;1087:11;;799:307;;;;:::o;248:64::-;;;;;;;;;;;;;;;;;;;;;;;;;;:::o',
+      source: 'pragma solidity >=0.4.0 <0.9.0;\r\n' +
+        '\r\n' +
+        'contract DappToken {\r\n' +
+        '    string public name;\r\n' +
+        '    string public symbol;\r\n' +
+        '    uint256 public totalSupply;\r\n' +
+        '    string public standard = "DApp Token v1.0";\r\n' +
+        '\r\n' +
+        '    mapping(address => uint256) public balanceOf;\r\n' +
+        '    mapping(address => mapping(address => uint256)) public allowance;\r\n' +
+        '\r\n' +
+        '    event Transfer(address indexed _from, address indexed _to, uint256 _value);\r\n' +
+        '    event Approve(\r\n' +
+        '        address indexed _owner,\r\n' +
+        '        address indexed _spender,\r\n' +
+        '        uint256 _value\r\n' +
+        '    );\r\n' +
+        '\r\n' +
+        '    constructor(\r\n' +
+        '        uint256 _initialSupply,\r\n' +
+        '        string memory _name,\r\n' +
+        '        string memory _symbol\r\n' +
+        '    ) public {\r\n' +
+        '        balanceOf[msg.sender] = _initialSupply;\r\n' +
+        '        totalSupply = _initialSupply;\r\n' +
+        '        name = _name;\r\n' +
+        '        symbol = _symbol;\r\n' +
+        '    }\r\n' +
+        '\r\n' +
+        '    function transfer(address _to, uint256 _value)\r\n' +
+        '        public\r\n' +
+        '        returns (bool success)\r\n' +
+        '    {\r\n' +
+        '        require(balanceOf[msg.sender] >= _value);\r\n' +
+        '        balanceOf[msg.sender] -= _value;\r\n' +
+        '        balanceOf[_to] += _value;\r\n' +
+        '        emit Transfer(msg.sender, _to, _value);\r\n' +
+        '        return true;\r\n' +
+        '    }\r\n' +
+        '\r\n' +
+        '    // _spender is  upcomming owner by the transection\r\n' +
+        '    function approve(address _spender, uint256 _value)\r\n' +
+        '        public\r\n' +
+        '        returns (bool success)\r\n' +
+        '    {\r\n' +
+        '        allowance[msg.sender][_spender] = _value; //set value for nested  mapping\r\n' +
+        '        // approve event\r\n' +
+        '        emit Approve(msg.sender, _spender, _value);\r\n' +
+        '        return true;\r\n' +
+        '    }\r\n' +
+        '\r\n' +
+        '    function transferFrom(\r\n' +
+        '        address _from,\r\n' +
+        '        address _to,\r\n' +
+        '        uint256 _value\r\n' +
+        '    ) public returns (bool success) {\r\n' +
+        '        require(_value <= balanceOf[_from]);\r\n' +
+        '        require(_value >= allowance[_from][msg.sender]);\r\n' +
+        '        balanceOf[_from] -= _value;\r\n' +
+        '        balanceOf[_to] += _value;\r\n' +
+        '        allowance[_from][msg.sender] -= _value;\r\n' +
+        '        emit Transfer(_from, _to, _value);\r\n' +
+        '        return true;\r\n' +
+        '        // require from account\r\n' +
+        '        // Change balance\r\n' +
+        '        // update allowance\r\n' +
+        '        // call transfer event\r\n' +
+        '        // return bool\r\n' +
+        '    }\r\n' +
+        '}\r\n',
+      sourcePath: 'C:\\Users\\Alamin (Programmer)\\Desktop\\Blockchain-App\\5Dapp\\Custom-Erc20Token-Creation\\contracts\\DappToken.sol',
+      ast: [Object],
+      legacyAST: [Object],
+      compiler: [Object],
+      networks: [Object],
+      schemaVersion: '3.4.3',
+      updatedAt: '2021-10-30T05:32:51.167Z',
+      networkType: 'ethereum',
+      devdoc: [Object],
+      userdoc: [Object],
+      db: undefined,
+      numberFormat: 'BN'
+    },
+    configureNetwork: [Function: bound configureNetwork],
+    setProvider: [Function: bound setProvider],
+    new: [Function: bound new] {
+      estimateGas: [Function: bound estimateDeployment],
+      request: [Function: bound requestDeployment]
+    },
+    at: [Function: bound at] AsyncFunction,
+    deployed: [Function: bound deployed] AsyncFunction,
+    defaults: [Function: bound defaults],
+    hasNetwork: [Function: bound hasNetwork],
+    isDeployed: [Function: bound isDeployed],
+    detectNetwork: [Function: bound detectNetwork] AsyncFunction,
+    setNetwork: [Function: bound setNetwork],
+    setNetworkType: [Function: bound setNetworkType],
+    setWallet: [Function: bound setWallet],
+    resetAddress: [Function: bound resetAddress],
+    link: [Function: bound link],
+    clone: [Function: bound clone],
+    addProp: [Function: bound addProp],
+    toJSON: [Function: bound toJSON],
+    decodeLogs: [Function: bound decodeLogs],
+    enums: {},
+    class_defaults: { from: '0xff4b92A336398351e7A103Ed5c92342760efA603' },
+    interfaceAdapter: Web3InterfaceAdapter { web3: [Web3Shim] },
+    web3: Web3Shim {
+      currentProvider: [Getter/Setter],
+      _requestManager: [RequestManager],
+      givenProvider: null,
+      providers: [Object],
+      _provider: [HttpProvider],
+      setProvider: [Function (anonymous)],
+      setRequestManager: [Function (anonymous)],
+      BatchRequest: [Function: bound Batch],
+      extend: [Function],
+      version: '1.5.3',
+      utils: [Object],
+      eth: [Eth],
+      shh: [Shh],
+      bzz: [Bzz],
+      networkType: 'ethereum'
+    },
+    currentProvider: HttpProvider {
+      withCredentials: false,
+      timeout: 0,
+      headers: undefined,
+      agent: undefined,
+      connected: true,
+      host: 'http://127.0.0.1:7545',
+      httpAgent: [Agent],
+      send: [Function (anonymous)],
+      _alreadyWrapped: true
+    },
+    network_id: '5777',
+    disableConfirmationListener: undefined,
+    ens: { enabled: false, registryAddress: null }
+  },
+  methods: {
+    'allowance(address,address)': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'balanceOf(address)': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'name()': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'standard()': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'symbol()': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'totalSupply()': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'transfer(address,uint256)': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'approve(address,uint256)': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    },
+    'transferFrom(address,address,uint256)': [Function (anonymous)] {
+      call: [Function (anonymous)],
+      sendTransaction: [Function (anonymous)],
+      estimateGas: [Function (anonymous)],
+      request: [Function (anonymous)]
+    }
+  },
+  abi: [
+    {
+      inputs: [Array],
+      payable: false,
+      stateMutability: 'nonpayable',
+      type: 'constructor',
+      constant: undefined
+    },
+    {
+      anonymous: false,
+      inputs: [Array],
+      name: 'Approve',
+      type: 'event',
+      constant: undefined,
+      payable: undefined,
+      signature: '0x6e11fb1b7f119e3f2fa29896ef5fdf8b8a2d0d4df6fe90ba8668e7d8b2ffa25e'
+    },
+    {
+      anonymous: false,
+      inputs: [Array],
+      name: 'Transfer',
+      type: 'event',
+      constant: undefined,
+      payable: undefined,
+      signature: '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef'
+    },
+    {
+      constant: true,
+      inputs: [Array],
+      name: 'allowance',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function',
+      signature: '0xdd62ed3e'
+    },
+    {
+      constant: true,
+      inputs: [Array],
+      name: 'balanceOf',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function',
+      signature: '0x70a08231'
+    },
+    {
+      constant: true,
+      inputs: [],
+      name: 'name',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function',
+      signature: '0x06fdde03'
+    },
+    {
+      constant: true,
+      inputs: [],
+      name: 'standard',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function',
+      signature: '0x5a3b7e42'
+    },
+    {
+      constant: true,
+      inputs: [],
+      name: 'symbol',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function',
+      signature: '0x95d89b41'
+    },
+    {
+      constant: true,
+      inputs: [],
+      name: 'totalSupply',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'view',
+      type: 'function',
+      signature: '0x18160ddd'
+    },
+    {
+      constant: false,
+      inputs: [Array],
+      name: 'transfer',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'nonpayable',
+      type: 'function',
+      signature: '0xa9059cbb'
+    },
+    {
+      constant: false,
+      inputs: [Array],
+      name: 'approve',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'nonpayable',
+      type: 'function',
+      signature: '0x095ea7b3'
+    },
+    {
+      constant: false,
+      inputs: [Array],
+      name: 'transferFrom',
+      outputs: [Array],
+      payable: false,
+      stateMutability: 'nonpayable',
+      type: 'function',
+      signature: '0x23b872dd'
+    }
+  ],
+  address: '0xc29d03e697f01680fbbC7B078C74822A49b39778',
+  transactionHash: undefined,
+  contract: Contract {
+    setProvider: [Function (anonymous)],
+    currentProvider: [Getter/Setter],
+    _requestManager: RequestManager {
+      provider: [HttpProvider],
+      providers: [Object],
+      subscriptions: Map(0) {}
+    },
+    givenProvider: null,
+    providers: {
+      WebsocketProvider: [Function: WebsocketProvider],
+      HttpProvider: [Function: HttpProvider],
+      IpcProvider: [Function: IpcProvider]
+    },
+    _provider: HttpProvider {
+      withCredentials: false,
+      timeout: 0,
+      headers: undefined,
+      agent: undefined,
+      connected: true,
+      host: 'http://127.0.0.1:7545',
+      httpAgent: [Agent],
+      send: [Function (anonymous)],
+      _alreadyWrapped: true
+    },
+    setRequestManager: [Function (anonymous)],
+    BatchRequest: [Function: bound Batch],
+    extend: [Function: ex] {
+      formatters: [Object],
+      utils: [Object],
+      Method: [Function: Method]
+    },
+    clearSubscriptions: [Function (anonymous)],
+    options: { address: [Getter/Setter], jsonInterface: [Getter/Setter] },
+    handleRevert: [Getter/Setter],
+    defaultCommon: [Getter/Setter],
+    defaultHardfork: [Getter/Setter],
+    defaultChain: [Getter/Setter],
+    transactionPollingTimeout: [Getter/Setter],
+    transactionConfirmationBlocks: [Getter/Setter],
+    transactionBlockTimeout: [Getter/Setter],
+    defaultAccount: [Getter/Setter],
+    defaultBlock: [Getter/Setter],
+    methods: {
+      allowance: [Function: bound _createTxObject],
+      '0xdd62ed3e': [Function: bound _createTxObject],
+      'allowance(address,address)': [Function: bound _createTxObject],
+      balanceOf: [Function: bound _createTxObject],
+      '0x70a08231': [Function: bound _createTxObject],
+      'balanceOf(address)': [Function: bound _createTxObject],
+      name: [Function: bound _createTxObject],
+      '0x06fdde03': [Function: bound _createTxObject],
+      'name()': [Function: bound _createTxObject],
+      standard: [Function: bound _createTxObject],
+      '0x5a3b7e42': [Function: bound _createTxObject],
+      'standard()': [Function: bound _createTxObject],
+      symbol: [Function: bound _createTxObject],
+      '0x95d89b41': [Function: bound _createTxObject],
+      'symbol()': [Function: bound _createTxObject],
+      totalSupply: [Function: bound _createTxObject],
+      '0x18160ddd': [Function: bound _createTxObject],
+      'totalSupply()': [Function: bound _createTxObject],
+      transfer: [Function: bound _createTxObject],
+      '0xa9059cbb': [Function: bound _createTxObject],
+      'transfer(address,uint256)': [Function: bound _createTxObject],
+      approve: [Function: bound _createTxObject],
+      '0x095ea7b3': [Function: bound _createTxObject],
+      'approve(address,uint256)': [Function: bound _createTxObject],
+      transferFrom: [Function: bound _createTxObject],
+      '0x23b872dd': [Function: bound _createTxObject],
+      'transferFrom(address,address,uint256)': [Function: bound _createTxObject]
+    },
+    events: {
+      Approve: [Function: bound ],
+      '0x6e11fb1b7f119e3f2fa29896ef5fdf8b8a2d0d4df6fe90ba8668e7d8b2ffa25e': [Function: bound ],
+      'Approve(address,address,uint256)': [Function: bound ],
+      Transfer: [Function: bound ],
+      '0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef': [Function: bound ],
+      'Transfer(address,address,uint256)': [Function: bound ],
+      allEvents: [Function: bound ]
+    },
+    _address: '0xc29d03e697f01680fbbC7B078C74822A49b39778',
+    _jsonInterface: [
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object],
+      [Object], [Object]
+    ]
+  },
+  Approve: [Function (anonymous)],
+  Transfer: [Function (anonymous)],
+  allowance: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  balanceOf: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  name: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  standard: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  symbol: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  totalSupply: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  transfer: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  approve: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  transferFrom: [Function (anonymous)] {
+    call: [Function (anonymous)],
+    sendTransaction: [Function (anonymous)],
+    estimateGas: [Function (anonymous)],
+    request: [Function (anonymous)]
+  },
+  sendTransaction: [Function (anonymous)],
+  send: [Function (anonymous)],
+  allEvents: [Function (anonymous)],
+  getPastEvents: [Function (anonymous)]
+}
+truffle(ganache)> dt.balanceOf[admin[0]]
+undefined
+truffle(ganache)> let ab=dt.balanceOf[admin[0]]
+undefined
+truffle(ganache)> ab
+undefined
+truffle(ganache)> web3.eth.accounts
+<ref *1> Accounts {
+  currentProvider: [Getter/Setter],
+  _requestManager: RequestManager {
+    provider: HttpProvider {
+      withCredentials: false,
+      timeout: 0,
+      headers: undefined,
+      agent: undefined,
+      connected: true,
+      host: 'http://127.0.0.1:7545',
+      httpAgent: [Agent],
+      send: [Function (anonymous)],
+      _alreadyWrapped: true
+    },
+    providers: {
+      WebsocketProvider: [Function: WebsocketProvider],
+      HttpProvider: [Function: HttpProvider],
+      IpcProvider: [Function: IpcProvider]
+    },
+    subscriptions: Map(0) {}
+  },
+  givenProvider: null,
+  providers: {
+    WebsocketProvider: [Function: WebsocketProvider],
+    HttpProvider: [Function: HttpProvider],
+    IpcProvider: [Function: IpcProvider]
+  },
+  _provider: HttpProvider {
+    withCredentials: false,
+    timeout: 0,
+    headers: undefined,
+    agent: undefined,
+    connected: true,
+    host: 'http://127.0.0.1:7545',
+    httpAgent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 80,
+      protocol: 'http:',
+      options: [Object],
+      requests: {},
+      sockets: {},
+      freeSockets: {},
+      keepAliveMsecs: 1000,
+      keepAlive: false,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 0,
+      [Symbol(kCapture)]: false
+    },
+    send: [Function (anonymous)],
+    _alreadyWrapped: true
+  },
+  setProvider: [Function (anonymous)],
+  setRequestManager: [Function (anonymous)],
+  _ethereumCall: {
+    getNetworkId: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'net_version'
+    },
+    getChainId: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_chainId'
+    },
+    getGasPrice: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_gasPrice'
+    },
+    getTransactionCount: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_getTransactionCount'
+    },
+    getBlockByNumber: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_getBlockByNumber'
+    }
+  },
+  wallet: Wallet {
+    _accounts: [Circular *1],
+    length: 0,
+    defaultKeyName: 'web3js_wallet'
+  }
+}
+truffle(ganache)> web3.eth.getAcccounts()
+evalmachine.<anonymous>:0
+web3.eth.getAcccounts()
+         ^
+
+Uncaught TypeError: web3.eth.getAcccounts is not a function
+    at evalmachine.<anonymous>:0:10
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+truffle(ganache)> web3.eth.getAcccount()
+evalmachine.<anonymous>:0
+web3.eth.getAcccount()
+         ^
+
+Uncaught TypeError: web3.eth.getAcccount is not a function
+    at evalmachine.<anonymous>:0:10
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+truffle(ganache)> web3.eth.getAccount()
+evalmachine.<anonymous>:0
+web3.eth.getAccount()
+         ^
+
+Uncaught TypeError: web3.eth.getAccount is not a function
+    at evalmachine.<anonymous>:0:10
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+truffle(ganache)> web3.eth.getAccounts()
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> lt a = (web3.eth.getAccounts())[0]
+evalmachine.<anonymous>:0
+lt a = (web3.eth.getAccounts())[0]
+   ^
+
+Uncaught SyntaxError: Unexpected identifier
+truffle(ganache)> let a = (web3.eth.getAccounts())[0]
+undefined
+truffle(ganache)> a
+undefined
+truffle(ganache)> lt a = (web3.eth.getAccounts())
+evalmachine.<anonymous>:0
+lt a = (web3.eth.getAccounts())
+   ^
+
+Uncaught SyntaxError: Unexpected identifier
+truffle(ganache)>  a = (web3.eth.getAccounts())
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)>  a = (web3.eth.getAccounts())
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> a
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> let b= a[0]
+undefined
+truffle(ganache)> b
+undefined
+truffle(ganache)> a[0]
+undefined
+truffle(ganache)> a(0)
+evalmachine.<anonymous>:0
+a(0)
+^
+
+Uncaught TypeError: a is not a function
+    at evalmachine.<anonymous>:0:1
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+truffle(ganache)> web3.eth.account(0)
+evalmachine.<anonymous>:0
+web3.eth.account(0)
+         ^
+
+Uncaught TypeError: web3.eth.account is not a function
+    at evalmachine.<anonymous>:0:10
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+truffle(ganache)> web3.eth.getAccounts(0)
+C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\672.bundled.js:122831
+        throw errors.InvalidNumberOfParams(args.length, this.params, this.name);
+        ^
+
+Uncaught Error: Invalid number of parameters for "getAccounts". Got 1 expected 0!
+    at Object.InvalidNumberOfParams (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\node_modules\web3-core-helpers\lib\errors.js:33:1)
+    at Method.validateArgs (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\node_modules\web3-eth\node_modules\web3-core-method\lib\index.js:111:1)
+    at Method.toPayload (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\node_modules\web3-eth\node_modules\web3-core-method\lib\index.js:160:1)
+    at Eth.send [as getAccounts] (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\node_modules\web3-eth\node_modules\web3-core-method\lib\index.js:497:1)
+    at evalmachine.<anonymous>:0:10
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+    at REPLServer.Interface._onLine (readline.js:364:10)
+    at REPLServer.Interface._line (readline.js:700:8)
+truffle(ganache)> web3.eth.getAccounts
+[Function: send] {
+  method: Method {
+    name: 'getAccounts',
+    call: 'eth_accounts',
+    params: 0,
+    inputFormatter: undefined,
+    outputFormatter: [Function: toChecksumAddress],
+    transformPayload: undefined,
+    extraFormatters: undefined,
+    abiCoder: undefined,
+    requestManager: RequestManager {
+      provider: [HttpProvider],
+      providers: [Object],
+      subscriptions: Map(0) {}
+    },
+    accounts: Accounts {
+      currentProvider: [Getter/Setter],
+      _requestManager: [RequestManager],
+      givenProvider: null,
+      providers: [Object],
+      _provider: [HttpProvider],
+      setProvider: [Function (anonymous)],
+      setRequestManager: [Function (anonymous)],
+      _ethereumCall: [Object],
+      wallet: [Wallet]
+    },
+    defaultBlock: 'latest',
+    defaultAccount: null,
+    transactionBlockTimeout: 50,
+    transactionConfirmationBlocks: 24,
+    transactionPollingTimeout: 750,
+    defaultCommon: undefined,
+    defaultChain: undefined,
+    defaultHardfork: undefined,
+    handleRevert: false
+  },
+  request: [Function: bound ],
+  call: 'eth_accounts'
+}
+truffle(ganache)> web3.eth.getAccounts()
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> web3.eth.accounts
+<ref *1> Accounts {
+  currentProvider: [Getter/Setter],
+  _requestManager: RequestManager {
+    provider: HttpProvider {
+      withCredentials: false,
+      timeout: 0,
+      headers: undefined,
+      agent: undefined,
+      connected: true,
+      host: 'http://127.0.0.1:7545',
+      httpAgent: [Agent],
+      send: [Function (anonymous)],
+      _alreadyWrapped: true
+    },
+    providers: {
+      WebsocketProvider: [Function: WebsocketProvider],
+      HttpProvider: [Function: HttpProvider],
+      IpcProvider: [Function: IpcProvider]
+    },
+    subscriptions: Map(0) {}
+  },
+  givenProvider: null,
+  providers: {
+    WebsocketProvider: [Function: WebsocketProvider],
+    HttpProvider: [Function: HttpProvider],
+    IpcProvider: [Function: IpcProvider]
+  },
+  _provider: HttpProvider {
+    withCredentials: false,
+    timeout: 0,
+    headers: undefined,
+    agent: undefined,
+    connected: true,
+    host: 'http://127.0.0.1:7545',
+    httpAgent: Agent {
+      _events: [Object: null prototype],
+      _eventsCount: 2,
+      _maxListeners: undefined,
+      defaultPort: 80,
+      protocol: 'http:',
+      options: [Object],
+      requests: {},
+      sockets: {},
+      freeSockets: {},
+      keepAliveMsecs: 1000,
+      keepAlive: false,
+      maxSockets: Infinity,
+      maxFreeSockets: 256,
+      scheduling: 'lifo',
+      maxTotalSockets: Infinity,
+      totalSocketCount: 0,
+      [Symbol(kCapture)]: false
+    },
+    send: [Function (anonymous)],
+    _alreadyWrapped: true
+  },
+  setProvider: [Function (anonymous)],
+  setRequestManager: [Function (anonymous)],
+  _ethereumCall: {
+    getNetworkId: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'net_version'
+    },
+    getChainId: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_chainId'
+    },
+    getGasPrice: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_gasPrice'
+    },
+    getTransactionCount: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_getTransactionCount'
+    },
+    getBlockByNumber: [Function: send] {
+      method: [Method],
+      request: [Function: bound ],
+      call: 'eth_getBlockByNumber'
+    }
+  },
+  wallet: Wallet {
+    _accounts: [Circular *1],
+    length: 0,
+    defaultKeyName: 'web3js_wallet'
+  }
+}
+truffle(ganache)> web3.eth.getAccounts()
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> await web3.eth.getAccounts()
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> (await web3.eth.getAccounts())
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> (await web3.eth.getAccounts())[0]
+'0xff4b92A336398351e7A103Ed5c92342760efA603'
+truffle(ganache)> let ad=(await web3.eth.getAccounts())[0]
+undefined
+truffle(ganache)> ad
+'0xff4b92A336398351e7A103Ed5c92342760efA603'
+truffle(ganache)> dt.balanceOf(ab)
+Uncaught:
+Error: invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5) (argument=null, value=undefined, code=INVALID_ARGUMENT, version=abi/5.0.7)
+    at evalmachine.<anonymous>:0:4
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+    at REPLServer.Interface._onLine (readline.js:364:10)
+    at REPLServer.Interface._line (readline.js:700:8)
+    at REPLServer.Interface._ttyWrite (readline.js:1045:14)
+    at REPLServer.self._ttyWrite (repl.js:914:9) {
+  reason: 'invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5)',
+  code: 'INVALID_ARGUMENT',
+  argument: null,
+  value: undefined,
+  hijackedStack: 'Error: invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5) (argument=null, value=undefined, code=INVALID_ARGUMENT, version=abi/5.0.7)\n' +
+    '    at lib_esm_Logger.makeError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:166:1)\n' +
+    '    at lib_esm_Logger.throwError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:175:1)\n' +
+    '    at lib_esm_Logger.throwArgumentError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:178:1)\n' +
+    '    at AddressCoder._throwError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\abstract-coder.js:38:15)\n' +
+    '    at AddressCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\address.js:14:1)\n' +
+    '    at C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\array.js:57:1\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at pack (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\array.js:43:1)\n' +
+    '    at TupleCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\tuple.js:19:16)\n' +
+    '    at AbiCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\abi-coder.js:82:1)\n' +
+    '    at ABICoder.encodeParameters (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\lib\\index.js:120:1)\n' +
+    '    at C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:438:1\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at Object._encodeMethodABI (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:437:6)\n' +
+    '    at Object._processExecuteArguments (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:700:1)\n' +
+    '    at Object._executeMethod (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:719:1)'
+}
+truffle(ganache)> dt.balanceOf(ab)
+Uncaught:
+Error: invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5) (argument=null, value=undefined, code=INVALID_ARGUMENT, version=abi/5.0.7)
+    at evalmachine.<anonymous>:0:4
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+    at REPLServer.Interface._onLine (readline.js:364:10)
+    at REPLServer.Interface._line (readline.js:700:8)
+    at REPLServer.Interface._ttyWrite (readline.js:1045:14)
+    at REPLServer.self._ttyWrite (repl.js:914:9) {
+  reason: 'invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5)',
+  code: 'INVALID_ARGUMENT',
+  argument: null,
+  value: undefined,
+  hijackedStack: 'Error: invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5) (argument=null, value=undefined, code=INVALID_ARGUMENT, version=abi/5.0.7)\n' +
+    '    at lib_esm_Logger.makeError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:166:1)\n' +
+    '    at lib_esm_Logger.throwError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:175:1)\n' +
+    '    at lib_esm_Logger.throwArgumentError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:178:1)\n' +
+    '    at AddressCoder._throwError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\abstract-coder.js:38:15)\n' +
+    '    at AddressCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\address.js:14:1)\n' +
+    '    at C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\array.js:57:1\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at pack (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\array.js:43:1)\n' +
+    '    at TupleCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\tuple.js:19:16)\n' +
+    '    at AbiCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\abi-coder.js:82:1)\n' +
+    '    at ABICoder.encodeParameters (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\lib\\index.js:120:1)\n' +
+    '    at C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:438:1\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at Object._encodeMethodABI (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:437:6)\n' +
+    '    at Object._processExecuteArguments (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:700:1)\n' +
+    '    at Object._executeMethod (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:719:1)'
+}
+truffle(ganache)> await dt.balanceOf(ab)
+Uncaught:
+Error: invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5) (argument=null, value=undefined, code=INVALID_ARGUMENT, version=abi/5.0.7)
+    at evalmachine.<anonymous>:1:12
+    at evalmachine.<anonymous>:2:49
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+    at REPLServer.Interface._onLine (readline.js:364:10)
+    at REPLServer.Interface._line (readline.js:700:8)
+    at REPLServer.Interface._ttyWrite (readline.js:1045:14) {
+  reason: 'invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5)',
+  code: 'INVALID_ARGUMENT',
+  argument: null,
+  value: undefined,
+  hijackedStack: 'Error: invalid address (argument="address", value=undefined, code=INVALID_ARGUMENT, version=address/5.0.5) (argument=null, value=undefined, code=INVALID_ARGUMENT, version=abi/5.0.7)\n' +
+    '    at lib_esm_Logger.makeError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:166:1)\n' +
+    '    at lib_esm_Logger.throwError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:175:1)\n' +
+    '    at lib_esm_Logger.throwArgumentError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\logger\\lib.esm\\index.js:178:1)\n' +
+    '    at AddressCoder._throwError (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\abstract-coder.js:38:15)\n' +
+    '    at AddressCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\address.js:14:1)\n' +
+    '    at C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\array.js:57:1\n' +
+    '    at Array.forEach (<anonymous>)\n' +
+    '    at pack (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\array.js:43:1)\n' +
+    '    at TupleCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\coders\\tuple.js:19:16)\n' +
+    '    at AbiCoder.encode (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\node_modules\\@ethersproject\\abi\\lib.esm\\abi-coder.js:82:1)\n' +
+    '    at ABICoder.encodeParameters (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth-abi\\lib\\index.js:120:1)\n' +
+    '    at C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:438:1\n' +
+    '    at Array.map (<anonymous>)\n' +
+    '    at Object._encodeMethodABI (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:437:6)\n' +
+    '    at Object._processExecuteArguments (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:700:1)\n' +
+    '    at Object._executeMethod (C:\\Users\\Alamin (Programmer)\\AppData\\Roaming\\npm\\node_modules\\truffle\\build\\webpack:\\node_modules\\web3-eth\\node_modules\\web3-eth-contract\\lib\\index.js:719:1)'
+}
+truffle(ganache)> abawait dt.balanceOf(ab)
+evalmachine.<anonymous>:0
+abawait dt.balanceOf(ab)
+        ^^
+
+Uncaught SyntaxError: Unexpected identifier
+truffle(ganache)> ab
+undefined
+truffle(ganache)> let ad=(await web3.eth.getAccounts())[0]
+evalmachine.<anonymous>:1
+let ad= global.__await_outside_result; void delete global.__await_outside_result;
+^
+
+Uncaught SyntaxError: Identifier 'ad' has already been declared
+truffle(ganache)> ad
+'0xff4b92A336398351e7A103Ed5c92342760efA603'
+truffle(ganache)> dt.balanceOf(ad)
+BN {
+  negative: 0,
+  words: [ 1000000, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)> let ab= dt.balanceOf(ad)
+evalmachine.<anonymous>:0
+let ab= dt.balanceOf(ad)
+^
+
+Uncaught SyntaxError: Identifier 'ab' has already been declared
+truffle(ganache)>  ab= dt.balanceOf(ad)
+BN {
+  negative: 0,
+  words: [ 1000000, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)>  ab=(await  dt.balanceOf(ad)).toNumber()
+Uncaught TypeError: Cannot read property 'match' of undefined
+    at ReadStream.onkeypress (readline.js:235:10)
+    at REPLServer.self._ttyWrite (repl.js:914:9)
+    at REPLServer.Interface._ttyWrite (readline.js:1045:14)
+    at REPLServer.Interface._line (readline.js:700:8)
+    at REPLServer.Interface._onLine (readline.js:364:10)
+    at REPLServer.emit (domain.js:470:12)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at bound (domain.js:416:15)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:288:1)
+    at Command.getCommand (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\command.js:26:1)
+    at Object.Yargs.self.parse (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\node_modules\yargs\yargs.js:532:1)
+    at Object.Yargs.self._parseArgs (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\node_modules\yargs\yargs.js:938:1)
+    at Function.Parser.detailed (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\node_modules\yargs-parser\index.js:761:1)
+    at parse (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\node_modules\yargs-parser\index.js:125:1)
+truffle(ganache)>  ab=await  dt.balanceOf(ad)
+Uncaught TypeError: Cannot read property 'match' of undefined
+    at ReadStream.onkeypress (readline.js:235:10)
+    at REPLServer.self._ttyWrite (repl.js:914:9)
+    at REPLServer.Interface._ttyWrite (readline.js:1045:14)
+    at REPLServer.Interface._line (readline.js:700:8)
+    at REPLServer.Interface._onLine (readline.js:364:10)
+    at REPLServer.emit (domain.js:470:12)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at bound (domain.js:416:15)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:288:1)
+    at Command.getCommand (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\command.js:26:1)
+    at Object.Yargs.self.parse (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\node_modules\yargs\yargs.js:532:1)
+    at Object.Yargs.self._parseArgs (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpackundefined
+truffle(ganache)> ab
+BN {
+  negative: 0,
+  words: [ 1000000, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)> ad
+'0xff4b92A336398351e7A103Ed5c92342760efA603'
+truffle(ganache)> ab.toNumber()
+evalmachine.<anonymous>:0
+ab.toNumber()
+   ^
+
+Uncaught TypeError: ab.toNumber is not a function
+    at evalmachine.<anonymous>:0:4
+    at sigintHandlersWrap (vm.js:273:12)
+    at Script.runInContext (vm.js:142:14)
+    at runScript (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:364:1)
+    at Console.interpret (C:\Users\Alamin (Programmer)\AppData\Roaming\npm\node_modules\truffle\build\webpack:\packages\core\lib\console.js:379:1)
+    at bound (domain.js:416:15)
+    at REPLServer.runBound [as eval] (domain.js:427:12)
+    at REPLServer.onLine (repl.js:821:10)
+    at REPLServer.emit (events.js:400:28)
+    at REPLServer.emit (domain.js:470:12)
+truffle(ganache)> ab.toNumber
+undefined
+truffle(ganache)> toNumber()
+evalmachine.<anonymous>:0
+undefined
+truffle(ganache)> (await web3.eth.getAccounts())[0]
+'0xff4b92A336398351e7A103Ed5c92342760efA603'
+truffle(ganache)> let accounts=(await web3.eth.getAccounts())
+undefined
+truffle(ganache)> accounts
+[
+  '0xff4b92A336398351e7A103Ed5c92342760efA603',
+  '0xc788C49B2aFfB1a535f4d4628db645751c414edA',
+  '0x3754CF653bE3b15289a536c59A0571646204f215',
+  '0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7',
+  '0xfC439Df77C052a1113F26dD3fB09c56d287DF087',
+  '0xa4A3D1116edaa0bA59a9c39ff96cF45AA7De9ba7',
+  '0xD0e4724B76f32584A4394Ba0e0C791B0b6C050e6',
+  '0xdE04A7F09DB05a302F10688e22c6a4185374F7ab',
+  '0xFab106C03FA09200a88839c122Dc06004DF5c348',
+  '0x517D5b564b058FB99769CD9BC33bf21a3B14194a'
+]
+truffle(ganache)> accounts[0]
+'0xff4b92A336398351e7A103Ed5c92342760efA603'
+undefined
+truffle(ganache)> dt.balanceOf(ad)
+BN {
+  negative: 0,
+  words: [ 999999, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)> dt.approve(accounts[1], 100)
+{
+  tx: '0x55f651dfc66de6e34885ea09e4dde663c05170966690b49d2a9e085eed08a6c2',
+  receipt: {
+    transactionHash: '0x55f651dfc66de6e34885ea09e4dde663c05170966690b49d2a9e085eed08a6c2',
+    transactionIndex: 0,
+    blockHash: '0xb2d63e6ab3468029eb4cc0ac86e302cb568e12342e810eef25942bec12f76159',
+    blockNumber: 14,
+    from: '0xff4b92a336398351e7a103ed5c92342760efa603',
+    to: '0xc29d03e697f01680fbbc7b078c74822a49b39778',
+    gasUsed: 43963,
+    cumulativeGasUsed: 43963,
+    contractAddress: null,
+    logs: [ [Object] ],
+    status: true,
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000008000080000000000000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000020000000004000000000000000000000000000000000000000000000002000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000000000000000080000000000200000008000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000',
+    rawLogs: [ [Object] ]
+  },
+  logs: [
+    {
+      logIndex: 0,
+      transactionIndex: 0,
+      transactionHash: '0x55f651dfc66de6e34885ea09e4dde663c05170966690b49d2a9e085eed08a6c2',
+      blockHash: '0xb2d63e6ab3468029eb4cc0ac86e302cb568e12342e810eef25942bec12f76159',
+      blockNumber: 14,
+      address: '0xc29d03e697f01680fbbC7B078C74822A49b39778',
+      type: 'mined',
+      id: 'log_b507f034',
+      event: 'Approve',
+      args: [Result]
+    }
+  ]
+}
+truffle(ganache)> dt.allowance(accounts[0], ad)
+BN { negative: 0, words: [ 0, <1 empty item> ], length: 1, red: null }
+truffle(ganache)> dt.allowance(ad, accounts[1])
+BN {
+  negative: 0,
+  words: [ 100, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)> let fa= accounts[2]
+undefined
+truffle(ganache)> let ta= accounts[3]
+undefined
+truffle(ganache)> let sa= accounts[4]
+undefined
+truffle(ganache)> fa
+'0x3754CF653bE3b15289a536c59A0571646204f215'
+truffle(ganache)> ta
+'0x9CdaA23c550F6F2e0FCEea131a30FE581BC9f3F7'
+truffle(ganache)> sa
+'0xfC439Df77C052a1113F26dD3fB09c56d287DF087'
+truffle(ganache)> dt.transfer(fa , 100, {from : ad})
+{
+  tx: '0xdec63e4e5b85e75908ac50917d015159b9f7ed716895fafef330c64216549a80',
+  receipt: {
+    transactionHash: '0xdec63e4e5b85e75908ac50917d015159b9f7ed716895fafef330c64216549a80',
+    transactionIndex: 0,
+    blockHash: '0xf7c0641ac09167c49fe4a53b2e0af8fdb613dd88f7e64b4be91d2ef10de642c5',
+    blockNumber: 15,
+    from: '0xff4b92a336398351e7a103ed5c92342760efa603',
+    to: '0xc29d03e697f01680fbbc7b078c74822a49b39778',
+    gasUsed: 51573,
+    cumulativeGasUsed: 51573,
+    contractAddress: null,
+    logs: [ [Object] ],
+    status: true,
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000008000000000000000000000000000080000000000000000000000000000000000020000000004000000000000000000010000000000008000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000004000000000082000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000000000000',
+    rawLogs: [ [Object] ]
+  },
+  logs: [
+    {
+      logIndex: 0,
+      transactionIndex: 0,
+      transactionHash: '0xdec63e4e5b85e75908ac50917d015159b9f7ed716895fafef330c64216549a80',
+      blockHash: '0xf7c0641ac09167c49fe4a53b2e0af8fdb613dd88f7e64b4be91d2ef10de642c5',
+      blockNumber: 15,
+      address: '0xc29d03e697f01680fbbC7B078C74822A49b39778',
+      type: 'mined',
+      id: 'log_f23caa66',
+      event: 'Transfer',
+      args: [Result]
+    }
+  ]
+}
+truffle(ganache)> dt.balanceOf(fa)
+BN {
+  negative: 0,
+  words: [ 100, <1 empty item> ],
+  length: 1,
+  red: null
+}
+truffle(ganache)> dt.approve(sa, 10,{from :fa})
+{
+  tx: '0xb67603caf123eb9bb5f627d100290b6b771609d05dd4b53083dafbe271326810',
+  receipt: {
+    transactionHash: '0xb67603caf123eb9bb5f627d100290b6b771609d05dd4b53083dafbe271326810',
+    transactionIndex: 0,
+    blockHash: '0x08b49cd03920ea8092670924b5cce496854f8cf7b166dfc3e3f1e740431cb128',
+    blockNumber: 16,
+    from: '0x3754cf653be3b15289a536c59a0571646204f215',
+    to: '0xc29d03e697f01680fbbc7b078c74822a49b39778',
+    gasUsed: 43963,
+    cumulativeGasUsed: 43963,
+    contractAddress: null,
+    logs: [ [Object] ],
+    status: true,
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000008000080000000001000000000000000000000000000000000000000000000000000000000000000000000080000000000000000000000000000000000020000000000000000000000000000000000000000008000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000004000000000000000000000200000000000000000000000000000000000000000000000020000000000000001000000000000000000800000000000000000000000000',
+    rawLogs: [ [Object] ]
+  },
+  logs: [
+    {
+      logIndex: 0,
+      transactionIndex: 0,
+      transactionHash: '0xb67603caf123eb9bb5f627d100290b6b771609d05dd4b53083dafbe271326810',
+      blockHash: '0x08b49cd03920ea8092670924b5cce496854f8cf7b166dfc3e3f1e740431cb128',
+      blockNumber: 16,
+      address: '0xc29d03e697f01680fbbC7B078C74822A49b39778',
+      type: 'mined',
+      id: 'log_b679337b',
+      event: 'Approve',
+      args: [Result]
+    }
+  ]
+}
+truffle(ganache)> dt.transferFrom(fa, ta, 10, {from:sa})
+{
+  tx: '0xe10e8d895a0430dabaa33f7d1e5ab7a159d75f97fd225eeb2917d1cd0ded7fda',
+  receipt: {
+    transactionHash: '0xe10e8d895a0430dabaa33f7d1e5ab7a159d75f97fd225eeb2917d1cd0ded7fda',
+    transactionIndex: 0,
+    blockHash: '0x980e1d1b8410c41a8ab85bd1e8c5bfae7833ad6103717067a05566e3d0d654ba',
+    blockNumber: 17,
+    from: '0xfc439df77c052a1113f26dd3fb09c56d287df087',
+    to: '0xc29d03e697f01680fbbc7b078c74822a49b39778',
+    gasUsed: 43997,
+    cumulativeGasUsed: 43997,
+    contractAddress: null,
+    logs: [ [Object] ],
+    status: true,
+    logsBloom: '0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000000000000001000000000000000000000000000000000000000008000000000000000000000000000080000000000000000000000000000000000020000000000000000000000000000010000000000008000000000000000000000000000000000000000000000000000001000000000000000000000000000000000000000000000000000000000000000004000000000002000000000000000000000000000000000000000000000000000000000200000000001000000000000000000000000000000000000000000000000000',
+    rawLogs: [ [Object] ]
+  },
+  logs: [
+    {
+      logIndex: 0,
+      transactionIndex: 0,
+      transactionHash: '0xe10e8d895a0430dabaa33f7d1e5ab7a159d75f97fd225eeb2917d1cd0ded7fda',
+      blockHash: '0x980e1d1b8410c41a8ab85bd1e8c5bfae7833ad6103717067a05566e3d0d654ba',
+      blockNumber: 17,
+      address: '0xc29d03e697f01680fbbC7B078C74822A49b39778',
+      type: 'mined',
+      id: 'log_c59695ae',
+      event: 'Transfer',
+      args: [Result]
+    }
+  ]
+}
+truffle(ganache)> dt.balanceOf(fa)
+BN { negative: 0, words: [ 90, <1 empty item> ], length: 1, red: null }
+truffle(ganache)> dt.balanceOf(ta)
+BN { negative: 0, words: [ 10, <1 empty item> ], length: 1, red: null }
+truffle(ganache)> dt.balanceOf(sa)
+BN { negative: 0, words: [ 0, <1 empty item> ], length: 1, red: null }
+truffle(ganache)> dt.allowance(fa , sa )
+BN { negative: 0, words: [ 0, <1 empty item> ], length: 1, red: null }
+truffle(ganache)>
+
