@@ -5,7 +5,7 @@ const DappTokenSale = artifacts.require('DappTokenSale')
 contract("DappTokenSale", async (accounts) => {
     var dtsc;//tokdn sale contract
     var dtc;//dapp token contract
-    var myTokenPrice = 1000000000000000000;// in wai 
+    var myTokenPrice = 10000000000000000;// in wai 
     var admin = accounts[0]
     var buyer = accounts[1]
     var tokenAvailable = 750000

@@ -4,13 +4,19 @@ require('./app.css')
 
 const App = () => {
   const w3 = useRef(null)
+  const dts = useRef(null)
+  const dt = useRef(null)
   const [loading, setLoading] = useState(true)
   const [account, setAccount] = useState("0x0")
+  const [token, setToken] = useState(100)
+  const [myBalance, setMyBalance] = useState()
 
   const [dtsState, setDtsState] = useState({
+    tokenPriceETH: null,
     tokenPrice: null,
     soldToken: null,
     totalSupply: null,
+    availableToken: null,
   })
 
 
@@ -25,24 +31,65 @@ const App = () => {
     var DTSnetworkData = dappTokenSaleJson.networks[networkID]
     if (DTnetworkData && DTSnetworkData) {
       var DT = new web3.eth.Contract(dappTokenJson.abi, DTnetworkData.address)
+      dt.current = DT
       var DTS = new web3.eth.Contract(dappTokenSaleJson.abi, DTSnetworkData.address)
-      web3.eth.getCoinbase((err, account) => {
+      dts.current = DTS
+      web3.eth.getCoinbase(async (err, account) => {
         if (err) {
         } else {
           setAccount(account)
+          console.log('aasdf', await DT.methods.balanceOf(DTS._address).call())
+          setMyBalance(await DT.methods.balanceOf(account).call())
+          return
+          DT.methods.transfer(DTS._address, 5000).send({ from: account })
+            .on('transactionHash', (hash) => {
+              console.log('transactionHash', hash)
+            })
+            .on("confirmation", (confirmation, receipt) => {
+              console.log("confirmation", confirmation, receipt)
+            })
+            .on("receipt", (receipt) => {
+              console.log(receipt)
+            })
+            .on('error', (err) => {
+              console.log('err', err)
+            })
+
         }
       })
       setDtsState({
         ...dtsState,
-        tokenPrice: web3.utils.fromWei(await DTS.methods.tokenPrice().call()),
-        soldToken: 600000,
-        totalSupply: await DT.methods.totalSupply().call()
+        tokenPriceETH: web3.utils.fromWei(await DTS.methods.tokenPrice().call()),
+        tokenPrice: await DTS.methods.tokenPrice().call(),
+        soldToken: await DTS.methods.tokenSold().call(),
+        totalSupply: await DT.methods.totalSupply().call(),
+        availableToken: (await DT.methods.balanceOf(DTS._address).call())
       })
       setLoading(false)
     }
   }, [])
 
+  const buyToken = async (e) => {
+    e.preventDefault()
+    if (token == 0) {
+      alert('Cant buy 0 token')
+    }
+    var tokenvalue = token * dtsState.tokenPrice
+    dts.current.methods.buyTokens(token).send({ from: account, value: tokenvalue })
+      .on('transactionHash', (hash) => {
+        window.location.reload()
+      })
+      .on("confirmation", (confirmation, receipt) => {
+        console.log("confirmation", confirmation, receipt)
+      })
+      .on("receipt", (receipt) => {
+        console.log(receipt)
+      })
+      .on('error', (err) => {
+        console.log('err', err)
+      })
 
+  }
   return (
     <div className="app" >
       <div className="container   pt-5">
@@ -56,13 +103,23 @@ const App = () => {
                   <h3 className="text-center ">Loading ... </h3>
                   :
                   <div>
+                    <span className="badge badge-success badge-sm "> Balance :<i className="fab fa-ethereum m-1" >   </i> {myBalance}  </span>
                     <p className="alert alert-success p-2" >Introducing  "DApp Token " (DAPP)!
                       <span className="mr-2">Token Price is</span>
-                      <span className="text-success bext-bold"><i class="fab fa-ethereum"></i>{(dtsState.tokenPrice)} </span>
+                      <span className="text-success bext-bold"><i className="fab fa-ethereum"></i>{(dtsState.tokenPriceETH)} </span>
                       <span> Ether. You currently have</span>
                       <span className="text-warning"> 0-DAPP </span>
                     </p>
-                    <div class="progress">
+                    <div className="form">
+                      <form onSubmit={e => { buyToken(e) }} className="mt-1">
+                        <div className="text-right">
+                          <input value={token} onChange={e => setToken(e.target.value)} required className="form-control" type="number" placeholder="Enter Amount of Token" />
+                          <button className="btn btn-success btn-sm mt-2">Buy DAPP Tokens</button>
+                        </div>
+                      </form>
+                    </div>
+
+                    <div class="progress mt-2">
                       <div
                         className="progress-bar progress-bar-striped progress-bar-animated"
                         role="progressbar"
@@ -76,15 +133,7 @@ const App = () => {
                         {dtsState.soldToken}/{dtsState.totalSupply - dtsState.soldToken}
                       </div>
                     </div>
-                    <div className="form">
-                      <form className="mt-1">
-                        <div className="text-right">
-                          <input required className="form-control" type="number" placeholder="Enter Amount of Token" />
-                          <button className="btn btn-success btn-sm mt-2">Buy DAPP Tokens</button>
-                        </div>
-                      </form>
-                    </div>
-                    <p className="mt-4 text-center">{dtsState.soldToken} / {dtsState.totalSupply} </p>
+                    <p className=" text-center">{dtsState.soldToken} / {dtsState.availableToken} </p>
                     <p className="mt-4 text-center"> Your Account is :  {account} </p>
                   </div>
               }
