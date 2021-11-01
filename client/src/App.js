@@ -17,6 +17,7 @@ const App = () => {
     tokenSold: null,
     totalSupply: null,
     tokenAvailable: 750000,
+    dtsBalance: null
   })
   useEffect(() => {
     if (typeof web3 !== 'undefined') {
@@ -54,12 +55,14 @@ const App = () => {
       } else {
         setAccount(account)
         var myBalance = await DTContracts.balanceOf(account)
+        var dtsBalance = await DTContracts.balanceOf(DTSContracts.address)
         setMyBalance(myBalance.toNumber())
         setDtsState({
           ...dtsState,
           tokenPrice: tokenPrice.toNumber(),
           tokenSold: tokenSold.toNumber(),
           tokenPriceETH: web3.utils.fromWei(`${tokenPrice}`),
+          dtsBalance: dtsBalance
         })
       }
     })
@@ -83,7 +86,7 @@ const App = () => {
     <div className="app  pt-5">
       <div className="container  ">
         <div className="card p-4">
-          <h3 className="text-center text-warning  "> Dapp Token Sale</h3>
+          <h3 className="text-center text-warning "> Dapp Token Sale</h3>
           <hr />
           {
             loading ?
@@ -91,7 +94,7 @@ const App = () => {
               :
               <div>
                 <span className="badge badge-success badge-sm m-1 "> My Balance :<i className="fab fa-ethereum m-1" >   </i> {myBalance}  </span>
-                <span className="badge badge-success badge-sm m-1 "> DTS   Balance :<i className="fab fa-ethereum m-1" >   </i> {dtsBalance}  </span>
+                <span className="badge badge-success badge-sm m-1 "> DTS   Balance :<i className="fab fa-ethereum m-1" >   </i> {dtsState.dtsBalance?.toNumber()}  </span>
                 <p className="alert alert-success p-2" >Introducing  "DApp Token " (DAPP)!
                   <span className="mr-2">Token Price is</span>
                   <span className="text-success bext-bold"><i className="fab fa-ethereum"></i>{(dtsState.tokenPriceETH)} </span>
@@ -107,7 +110,6 @@ const App = () => {
                   </form>
                   <button className="btn btn-success btn-sm mt-2" onClick={e => depositDts()}> Deposit to DTS </button>
                 </div>
-
                 <div class="progress mt-2">
                   <div
                     className="progress-bar progress-bar-striped progress-bar-animated"
