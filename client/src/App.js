@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./app.css"
 import Web3 from 'web3'
 const App = () => {
 
+  const dtRef = useRef(null)
+  const dtsRef = useRef(null)
   const [loading, setLoading] = useState(true)
   const [account, setAccount] = useState("0x0")
   const [token, setToken] = useState(1)
@@ -24,7 +26,6 @@ const App = () => {
       window.web3 = new Web3(web3Provider)
     }
     initContracts()
-    renderComponent()
     setLoading(false)
   }, [])
 
@@ -38,27 +39,45 @@ const App = () => {
     DT.setProvider(web3.currentProvider)
     DTS.setProvider(web3.currentProvider)
 
-    var DTCoontracts = await DT.deployed()
-    var DTSCoontracts = await DTS.deployed()
+    var DTContracts = await DT.deployed()
+    dtRef.current = DTContracts
+    var DTSContracts = await DTS.deployed()
+    dtsRef.current = DTSContracts
 
-    var tokenPrice = await DTSCoontracts.tokenPrice()
-    var tokenSold = await DTSCoontracts.tokenSold()
-    setDtsState({
-      ...dtsState,
-      tokenPrice: tokenPrice.toNumber(),
-      tokenSold: tokenSold.toNumber(),
-      tokenPriceETH: web3.utils.fromWei(`${tokenPrice}`)
-    })
-  }
 
-  const renderComponent = async () => {
+    var tokenPrice = await DTSContracts.tokenPrice()
+    var tokenSold = await DTSContracts.tokenSold()
+
     web3.eth.getCoinbase(async (err, account) => {
       if (err) {
         console.log(err)
       } else {
         setAccount(account)
+        var myBalance = await DTContracts.balanceOf(account)
+        setMyBalance(myBalance.toNumber())
+        setDtsState({
+          ...dtsState,
+          tokenPrice: tokenPrice.toNumber(),
+          tokenSold: tokenSold.toNumber(),
+          tokenPriceETH: web3.utils.fromWei(`${tokenPrice}`),
+        })
       }
     })
+  }
+
+  const buyToken = async (e) => {
+    e.preventDefault()
+    if (token == 0) {
+      alert('Cant buy 0 token')
+    }
+    var tokenvalue = token * dtsState.tokenPrice
+    dtsRef.current.buyTokens(token, {
+      from: account,
+      value: tokenvalue,
+    })
+      .then((result) => {
+        console.log('result ', result)
+      })
   }
   return (
     <div className="app  pt-5">
@@ -71,7 +90,7 @@ const App = () => {
               <h3 className="text-center ">Loading ... </h3>
               :
               <div>
-                <span className="badge badge-success badge-sm m-1 "> Admin Balance :<i className="fab fa-ethereum m-1" >   </i> {myBalance}  </span>
+                <span className="badge badge-success badge-sm m-1 "> My Balance :<i className="fab fa-ethereum m-1" >   </i> {myBalance}  </span>
                 <span className="badge badge-success badge-sm m-1 "> DTS   Balance :<i className="fab fa-ethereum m-1" >   </i> {dtsBalance}  </span>
                 <p className="alert alert-success p-2" >Introducing  "DApp Token " (DAPP)!
                   <span className="mr-2">Token Price is</span>
@@ -97,10 +116,9 @@ const App = () => {
                     aria-valuemin="0"
                     aria-valuemax="100"
                     style={{
-                      width: `${((dtsState.tokenSOld / dtsState.totalSupply) * 100)}%`
+                      width: `${((dtsState.tokenSOld / dtsState.tokenAvailable) * 100)}%`
                     }}
                   >
-                    {dtsState.soldToken}/{dtsState.totalSupply - dtsState.soldToken}
                   </div>
                 </div>
                 <p className=" text-center">{dtsState.tokenSold} / {dtsState.tokenAvailable} </p>
